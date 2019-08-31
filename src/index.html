@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS-Markup Example</title>
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #242424;
+        color: #CCC;
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        overflow: hidden;
+      }
+      .toggle-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 8px;
+        margin: 8px;
+        background: unset;
+        color: #CCC;
+        border: 2px solid #CCC;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+    <script src="./dist/pspattern.js"></script>
+    <script>
+      let isOn = false;
+      function toggle() {
+        isOn = !isOn;
+        const event = new CustomEvent(isOn ? 'CLOCK_START' : 'CLOCK_STOP');
+        document.dispatchEvent(event);
+      }
+    </script>
+  </head>
+  <body>
+    <button class="toggle-button" onclick="toggle(event)">toggle</button>
+    
+    <ps-seq>
+      <ps-pat-mod speed="1" degrade="1">
+        <ps-pat-midi pattern="a:52 a:60 , a:72"></ps-pat-midi>
+        <ps-pat-midi pattern="a a a"></ps-pat-midi>
+        <!-- <ps-pat-midi pattern="a"></ps-pat-midi> -->
+      </ps-pat-mod>
+    </ps-seq>
+
+  </body>  
+</html>
