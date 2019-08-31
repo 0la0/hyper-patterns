@@ -6,7 +6,7 @@ export const components = {
   PsPatMod,
   PsPatMidi,
   PsSeq,
-}
+};
 
 export function defineComponents() {
   const componentList = Object.values(components);

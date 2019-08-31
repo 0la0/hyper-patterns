@@ -1,4 +1,4 @@
-import arpeggiate from './ArpeggiatorHandler';
+// import arpeggiate from './ArpeggiatorHandler';
 import degrade from './DegradeHandler';
 import offset from './OffsetHandler';
 import repeat from './RepeatHandler';

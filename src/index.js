@@ -11,6 +11,6 @@ const PsVizMarkup = {
 
 (function() {
   document.addEventListener('DOMContentLoaded', init);
-})()
+})();
 
 export default PsVizMarkup;

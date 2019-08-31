@@ -3,11 +3,7 @@ import parseCycle from '../src/services/Pattern/PatternStringParser';
 import getRelativeCycle from '../src/services/Pattern/RelativeCycleBuilder';
 import RelativeCycleElement from '../src/services/Pattern/RelativeCycleElement';
 import { buildAudioEventsFromPattern } from '../src/services/Pattern/AudioEventBuilder';
-// import { TimeSchedule } from '../src/services/metronome';
 import AudioEvent from '../src/services/AudioEvent';
-
-// import { AUDIO_TICK_MULTIPLIER } from '../midi/util';
-const AUDIO_TICK_MULTIPLIER = 1000;
 
 export default class TimeSchedule {
   constructor(timeStamp = 0) {
