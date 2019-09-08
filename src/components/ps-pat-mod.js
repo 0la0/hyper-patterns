@@ -1,12 +1,14 @@
 import PsBase from './ps-base';
 import degrade from '../services/PatternFunctions/DegradeHandler';
+import every from '../services/PatternFunctions/EveryHandler';
 import offset from '../services/PatternFunctions/OffsetHandler';
 import repeat from '../services/PatternFunctions/RepeatHandler';
 import reverse from '../services/PatternFunctions/ReverseHandler';
 import rotate from '../services/PatternFunctions/RotateHandler';
 import speed from '../services/PatternFunctions/SpeedHandler';
 
-const transformDelegate = { degrade, offset, repeat, reverse, rotate, speed, };
+
+const transformDelegate = { degrade, every, offset, repeat, reverse, rotate, speed, };
 
 export default class PsPatternMod extends PsBase {
   static get tag() {
@@ -14,7 +16,7 @@ export default class PsPatternMod extends PsBase {
   }
 
   static get observedAttributes() {
-    return [ 'degrade', 'offset', 'repeat', 'reverse', 'rotate', 'speed' ];
+    return [ 'degrade', 'every', 'offset', 'repeat', 'reverse', 'rotate', 'speed' ];
   }
 
   addTransform(key, value) {

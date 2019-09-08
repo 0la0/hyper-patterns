@@ -30,12 +30,17 @@ export default class PatternBuilder extends PatternTransformer{
     const cnt = this.cnt++;
     const clonedCycle = this.relativeCycle.map(ele => ele.clone());
     const originalPattern = new Pattern(clonedCycle, this.baseAddress, this.numTicks, cnt);
-    return this.transforms.reduce((pattern, patternTransform) => {
-      if (!patternTransform.countPredicate(cnt)) {
-        return pattern;
-      }
-      return patternTransform.transform(pattern);
-    }, originalPattern);
+    
+    const shouldTransform = this.transforms.every(transform => transform.countPredicate(cnt));
+    if (shouldTransform) {
+      return this.transforms.reduce((pattern, patternTransform) => {
+        if (!patternTransform.countPredicate(cnt)) {
+          return pattern;
+        }
+        return patternTransform.transform(pattern);
+      }, originalPattern);
+    }
+    return originalPattern;
   }
 
   isValid() {

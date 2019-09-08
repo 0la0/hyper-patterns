@@ -64,10 +64,16 @@ const arpStyleStrategy = {
   updown: arpUpDown,
 };
 
-export default function arpeggiate(arpStyle, step, distance, rate, repeat) {
-  const arpStrategy = arpStyleStrategy[arpStyle];
+export default function arpeggiate({
+  mode = 'up',
+  step = 1,
+  distance = 12,
+  rate = 1,
+  repeat = 1,
+}) {
+  const arpStrategy = arpStyleStrategy[mode];
   if (!arpStrategy) {
-    throw new Error(`Arpeggiator, unrecognized style: ${arpStyle}`);
+    throw new Error(`Arpeggiator, unrecognized style: ${mode}`);
   }
   const transformFn = _pattern => {
     const cycleElements = _pattern.getRelativeCycle();

@@ -1,5 +1,5 @@
 import metronome, { MetronomeScheduler } from '../services/metronome';
-// import eventBus from '../services/EventBus';
+import eventBus from '../services/EventBus';
 import CycleHandler from '../services/CycleHandler';
 import PsBase from './ps-base';
 
@@ -26,7 +26,8 @@ export default class PsSeq extends PsBase {
   handleTick(tickNumber, time) {
     const audioEvents = this.cycleHandler.handleTick(time, metronome.getTickLength());
     if (!audioEvents) { return; }
-    // console.log('audioEvents', audioEvents)
-    // audioEvents.forEach(audioEvent => eventBus.publish(audioEvent));
+    const timestamps = audioEvents.map(a => a.time.timeStamp);
+    console.log('audioEvents', timestamps);
+    audioEvents.forEach(audioEvent => eventBus.publish(audioEvent));
   }
 }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PS-Markup Example</title>
+    <title>PS-Pattern Example</title>
     <style>
       html, body {
         width: 100%;
@@ -43,11 +43,13 @@
     <button class="toggle-button" onclick="toggle(event)">toggle</button>
     
     <ps-seq>
-      <ps-pat-mod speed="1" degrade="1">
-        <ps-pat-midi pattern="a:52 a:60 , a:72"></ps-pat-midi>
-        <ps-pat-midi pattern="a a a"></ps-pat-midi>
-        <!-- <ps-pat-midi pattern="a"></ps-pat-midi> -->
-      </ps-pat-mod>
+      <ps-arp step="2">
+        <ps-pat-mod speed="1">
+          <ps-pat-midi pattern="a:52 a:60 , a:72"></ps-pat-midi>
+          <ps-pat-midi pattern="a a a"></ps-pat-midi>
+          <!-- <ps-pat-midi pattern="a"></ps-pat-midi> -->
+        </ps-pat-mod>
+      </ps-arp>
     </ps-seq>
 
   </body>  

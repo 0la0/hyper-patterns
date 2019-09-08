@@ -1,4 +1,4 @@
-import { EventBus } from 'sea';
+import { GlobalEventBus } from 'sea';
 
-const eventBus = new EventBus();
+const eventBus = new GlobalEventBus();
 export default eventBus;
