@@ -20,14 +20,11 @@ export default class PsSeq extends PsBase {
       stop: () => console.log('ps-seq todo: stop'),
     });
     metronome.register(this.metronomeSchedulable);
-    console.log('metronome', metronome);
   }
 
   handleTick(tickNumber, time) {
     const audioEvents = this.cycleHandler.handleTick(time, metronome.getTickLength());
     if (!audioEvents) { return; }
-    const timestamps = audioEvents.map(a => a.time.timeStamp);
-    console.log('audioEvents', timestamps);
     audioEvents.forEach(audioEvent => eventBus.publish(audioEvent));
   }
 }
