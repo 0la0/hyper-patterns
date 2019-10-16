@@ -8,25 +8,32 @@ export default class PsPatMidi extends PsBase {
   }
 
   static get observedAttributes() {
-    return [ 'pattern' ];
+    return [ 'address', 'pattern' ];
   }
 
   connectedCallback() {
     super.connectedCallback();
-    this.isMounted = true;
+    const patternBuilder = new PatternBuilder({
+      patternString: this.hasAttribute('pattern') ? this.getAttribute('pattern') : '',
+      baseAddress: this.hasAttribute('address') ? this.getAttribute('address') : '',
+    });
     this.paramMap = {
-      pattern: new PatternBuilder({ patternString: this.getAttribute('pattern'), }),
+      pattern: {
+        setValue: patternString => patternBuilder.setValue(patternString),
+      },
+      address: {
+        setValue: address => patternBuilder.setAddress(address),
+      },
     };
-
     batchRender(() => {
       if (this.parentNode.patternModel) {
-        this.onRemoveCallback = this.parentNode.patternModel.appendPattern(this.paramMap.pattern);
+        this.onRemoveCallback = this.parentNode.patternModel.appendPattern(patternBuilder);
       }
     });
   }
 
   disconnectedCallback() {
-    this.isMounted = false;
+    super.disconnectedCallback();
     if (this.onRemoveCallback) {
       this.onRemoveCallback();
     }

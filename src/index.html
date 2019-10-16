@@ -37,19 +37,19 @@
         const event = new CustomEvent(isOn ? 'CLOCK_START' : 'CLOCK_STOP');
         document.dispatchEvent(event);
       }
+      document.addEventListener('GLOBAL_EVENT', event => console.log('event', event.detail));
     </script>
   </head>
   <body>
     <button class="toggle-button" onclick="toggle(event)">toggle</button>
     
     <ps-seq>
-      <ps-arp step="2">
+      <!-- <ps-arp step="2"> -->
         <ps-pat-mod speed="1">
           <ps-pat-midi pattern="a:52 a:60 , a:72"></ps-pat-midi>
-          <ps-pat-midi pattern="a a a"></ps-pat-midi>
-          <!-- <ps-pat-midi pattern="a"></ps-pat-midi> -->
+          <ps-pat-midi address="a" pattern="59 58 57"></ps-pat-midi>
         </ps-pat-mod>
-      </ps-arp>
+      <!-- </ps-arp> -->
     </ps-seq>
 
   </body>  

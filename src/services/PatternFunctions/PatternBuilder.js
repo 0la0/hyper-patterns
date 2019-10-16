@@ -14,16 +14,24 @@ export default class PatternBuilder extends PatternTransformer{
       throw new Error(`Pattern base address must be a string, received: ${baseAddress}`);
     }
     this.baseAddress = baseAddress;
-    this.setValue(patternString);
+    this.setPatternString(patternString);
     this.numTicks = 16;
     this.cnt = 0;
     this.id = uuid();
   }
 
-  setValue(patternString) {
+  setPatternString(patternString) {
     this.patternString = patternString;
     this.pattern = parseCycle(patternString);
     this.relativeCycle = this.pattern.ok ? getRelativeCycle(this.pattern.content, 0, 1, this.baseAddress) : [];
+  }
+
+  setValue(patternString) {
+    this.setPatternString(patternString);
+  }
+
+  setBaseAddress(baseAddress) {
+    this.baseAddress = baseAddress;
   }
 
   tick() {
