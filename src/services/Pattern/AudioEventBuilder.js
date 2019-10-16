@@ -1,5 +1,7 @@
 import AudioEvent from '../AudioEvent';
 
+const REST_CHARACTERS = new Set([ ',', ]);
+
 function getNumericValue(str) {
   const floatNote = parseFloat(str, 10);
   return Number.isNaN(floatNote) ? undefined : floatNote;
@@ -21,6 +23,7 @@ export function parseToken(token, baseAddress) {
   if (typeof token !== 'string') {
     throw new Error('Tokenizer input must be a string', token);
   }
+  if (REST_CHARACTERS.has(token)) { return; }
   const tokens = token.split(':');
   if (tokens.length === 1) {
     const token = tokens[0];

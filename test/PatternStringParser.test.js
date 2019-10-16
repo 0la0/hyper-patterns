@@ -51,23 +51,8 @@ describe('CycleParser', () => {
     assert.deepEqual(six, { ok: true, content: [ [ [ [] ], [ [] ], [] ] ] } );
   });
 
-  it('parses strings with closed brackets', () => {
-    const one = parseCycle('[a]');
-    assert.deepEqual(one, { ok: true, content: [ ['a'] ] } );
-
-    const two = parseCycle('[]');
-    assert.deepEqual(two, { ok: true, content: [[]] } );
-
-    const three = parseCycle('[[]]');
-    assert.deepEqual(three, { ok: true, content: [[[]]] } );
-
-    const four = parseCycle('[][][]');
-    assert.deepEqual(four, { ok: true, content: [ [], [], [] ] } );
-
-    const five = parseCycle('[[[]][[]][]]');
-    assert.deepEqual(five, { ok: true, content: [ [ [ [] ], [ [] ], [] ] ] } );
-
-    const six = parseCycle('[ [[] ][[ ]] [ ]]');
-    assert.deepEqual(six, { ok: true, content: [ [ [ [] ], [ [] ], [] ] ] } );
+  it('parses strings with "rests"', () => {
+    const result = parseCycle('a b , d');
+    assert.deepEqual(result, { ok: true, content: [ 'a', 'b', ',', 'd' ] } );
   });
 });

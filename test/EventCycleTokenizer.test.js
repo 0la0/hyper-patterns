@@ -36,4 +36,8 @@ describe('Tokenizer', () => {
     assert.deepEqual(parseToken('_72', 'b'), new AudioEvent('b', 72, undefined, true));
     assert.deepEqual(parseToken('_'), new AudioEvent('_', 60, undefined, true));
   });
+
+  it('parses commas as "rests"', () => {
+    assert.strictEqual(parseToken(','), undefined);
+  });
 });
