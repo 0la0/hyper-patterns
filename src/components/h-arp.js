@@ -1,4 +1,4 @@
-import PsBase from './ps-base';
+import HyperPatternBase from './baseComponent';
 import arpeggiate from '../services/PatternFunctions/ArpeggiatorHandler';
 
 const defaultValues = {
@@ -17,9 +17,9 @@ const attributeTypes = {
   repeat: 'number'
 };
 
-export default class PsArp extends PsBase {
+export default class HyperPatternArp extends HyperPatternBase {
   static get tag() {
-    return 'ps-arp';
+    return 'h-arp';
   }
 
   static get observedAttributes() {

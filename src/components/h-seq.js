@@ -1,11 +1,11 @@
+import HyperPatternBase from './baseComponent';
 import metronome, { MetronomeScheduler } from '../services/metronome';
 import eventBus from '../services/EventBus';
 import CycleHandler from '../services/CycleHandler';
-import PsBase from './ps-base';
 
-export default class PsSeq extends PsBase {
+export default class HyperSeq extends HyperPatternBase {
   static get tag() {
-    return 'ps-seq';
+    return 'h-seq';
   }
 
   connectedCallback() {

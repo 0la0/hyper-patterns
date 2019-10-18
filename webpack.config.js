@@ -12,9 +12,9 @@ const webpackConfig = {
   output: {
     publicPath: 'dist/',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'pspattern.js',
-    sourceMapFilename: 'pspattern.js.map',
-    library: 'ps-pattern',
+    filename: 'hyperpattern.js',
+    sourceMapFilename: 'hyperpattern.js.map',
+    library: 'hyper-pattern',
     libraryTarget: 'umd',
   },
   devtool: 'source-map',

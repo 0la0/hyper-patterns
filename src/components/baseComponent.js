@@ -1,4 +1,4 @@
-export default class PsBase extends HTMLElement {
+export default class PatternBase extends HTMLElement {
   constructor() {
     super();
     this.isMounted = false;

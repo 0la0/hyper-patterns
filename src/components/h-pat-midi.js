@@ -1,10 +1,10 @@
-import PsBase from './ps-base';
+import HyperPatternBase from './baseComponent';
 import PatternBuilder from '../services/PatternFunctions/PatternBuilder.js';
 import { batchRender } from '../services/TaskScheduler';
 
-export default class PsPatMidi extends PsBase {
+export default class HyperPatternMidi extends HyperPatternBase {
   static get tag() {
-    return 'ps-pat-midi';
+    return 'h-pat-midi';
   }
 
   static get observedAttributes() {

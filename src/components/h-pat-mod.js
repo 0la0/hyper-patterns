@@ -1,4 +1,4 @@
-import PsBase from './ps-base';
+import HyperPatternBase from './baseComponent';
 import degrade from '../services/PatternFunctions/DegradeHandler';
 import every from '../services/PatternFunctions/EveryHandler';
 import offset from '../services/PatternFunctions/OffsetHandler';
@@ -10,9 +10,9 @@ import speed from '../services/PatternFunctions/SpeedHandler';
 
 const transformDelegate = { degrade, every, offset, repeat, reverse, rotate, speed, };
 
-export default class PsPatternMod extends PsBase {
+export default class HyperPatternMod extends HyperPatternBase {
   static get tag() {
-    return 'ps-pat-mod';
+    return 'h-pat-mod';
   }
 
   static get observedAttributes() {
@@ -34,7 +34,7 @@ export default class PsPatternMod extends PsBase {
     super.connectedCallback();
     this.patterns = [];
 
-    this.transforms = PsPatternMod.observedAttributes
+    this.transforms = HyperPatternMod.observedAttributes
       .filter(attr => this.hasAttribute(attr))
       .reduce((acc, attr) => {
         const value = parseFloat(this.getAttribute(attr), 10);

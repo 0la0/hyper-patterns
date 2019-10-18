@@ -1,13 +1,13 @@
-import PsArp from './ps-arp';
-import PsPatMod from './ps-pat-mod';
-import PsPatMidi from './ps-pat-midi';
-import PsSeq from './ps-seq';
+import HyperPatternArp from './h-arp';
+import HyperPatternMod from './h-pat-mod';
+import HyperPatternMidi from './h-pat-midi';
+import HyperPatternSeq from './h-seq';
 
 export const components = {
-  PsArp,
-  PsPatMod,
-  PsPatMidi,
-  PsSeq,
+  HyperPatternArp,
+  HyperPatternMod,
+  HyperPatternMidi,
+  HyperPatternSeq,
 };
 
 export function defineComponents() {

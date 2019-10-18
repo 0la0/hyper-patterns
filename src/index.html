@@ -29,7 +29,7 @@
         cursor: pointer;
       }
     </style>
-    <script src="./dist/pspattern.js"></script>
+    <script src="./dist/hyperpattern.js"></script>
     <script>
       let isOn = false;
       function toggle() {
@@ -43,14 +43,14 @@
   <body>
     <button class="toggle-button" onclick="toggle(event)">toggle</button>
     
-    <ps-seq>
-      <!-- <ps-arp step="2"> -->
-        <ps-pat-mod speed="1">
-          <ps-pat-midi pattern="a:52 a:60 , a:72"></ps-pat-midi>
-          <ps-pat-midi address="a" pattern="59 58 57"></ps-pat-midi>
-        </ps-pat-mod>
-      <!-- </ps-arp> -->
-    </ps-seq>
+    <h-seq>
+      <!-- <h-arp step="2"> -->
+        <h-pat-mod speed="1">
+          <h-pat-midi pattern="a:52 a:60 , a:72"></h-pat-midi>
+          <h-pat-midi address="a" pattern="59 58 57"></h-pat-midi>
+        </h-pat-mod>
+      <!-- </h-arp> -->
+    </h-seq>
 
   </body>  
 </html>
