@@ -1,24 +1,24 @@
 {
-  "name": "ps-pattern",
+  "name": "hyper-pattern",
   "version": "0.0.1",
-  "description": "pattern generation with HTML",
+  "description": "Temporal pattern generation with HTML",
   "main": "dist/pspattern.js",
   "scripts": {
-    "build": "webpack -r esm --mode=development --content-base src",
+    "build": "webpack --mode=production",
     "lint": "eslint src test",
-    "start": "webpack-dev-server -r esm --mode=development --inline --colors --progress --content-base src",
+    "start": "webpack-dev-server --mode=development --inline --colors --progress",
     "test": "mocha -r esm test/*.test.js"
   },
   "author": "Luke Anderson",
-  "license": "ISC",
+  "repository": "github:0la0/ps-pattern",
+  "license": "GPL-3.0",
   "dependencies": {
-    "ps-metronome": "../metronome",
-    "sea": "../event-bus"
+    "metronome": "github:0la0/metronome#1.0.2",
+    "sea": "github:0la0/sea#1.0.0"
   },
   "devDependencies": {
     "eslint": "^6.0.0",
     "esm": "^3.2.25",
-    "jsdom": "^15.1.1",
     "mocha": "^6.1.4",
     "raw-loader": "^2.0.0",
     "webpack": "^4.34.0",

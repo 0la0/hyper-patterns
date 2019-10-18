@@ -21,16 +21,16 @@ const webpackConfig = {
   module: {
     rules: [
       {
-        test: /\.css$|\.html$|\.worker.js$/,
+        test: /\.css$|\.html$/,
         exclude: /node_modules/,
         loader: 'raw-loader'
       }
     ]
   },
   devServer: {
-    port: 3001
+    port: 3001,
+    contentBase: path.join(__dirname, 'src'),
   },
-  mode: process.env.WEBPACK_SERVE ? 'development' : 'production',
   plugins: [
     new webpack.DefinePlugin({
       VERSION: JSON.stringify(version),

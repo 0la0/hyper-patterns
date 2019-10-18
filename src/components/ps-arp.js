@@ -39,8 +39,6 @@ export default class PsArp extends PsBase {
       }, {});
     this.params = Object.assign({}, defaultValues, initialParams);
     this.arpTransform = arpeggiate(this.params);
-    // this.patterns = [];
-    console.log('ps-arp connected')
 
     this.patternModel = {
       appendPattern: (pattern) => {

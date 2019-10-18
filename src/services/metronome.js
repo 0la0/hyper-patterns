@@ -2,7 +2,7 @@ import {
   MetronomeManager,
   MetronomeScheduler,
   TimeSchedule
-} from 'ps-metronome';
+} from 'metronome';
 
 const metronome = new MetronomeManager();
 
