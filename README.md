@@ -1,5 +1,5 @@
-# PS-Pattern
-pattern generation with HTML
+# Hyper-Patterns
+Temporal pattern generation with HTML
 
 Development ongoing, documentation to follow.
 
