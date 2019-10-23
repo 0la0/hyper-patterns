@@ -30,7 +30,7 @@ export default class HyperPatternArp extends HyperPatternBase {
     super.connectedCallback();
     this.patterns = [];
     
-    const initialParams = PsArp.observedAttributes
+    const initialParams = HyperPatternArp.observedAttributes
       .filter(attr => this.hasAttribute(attr))
       .reduce((acc, attr) => {
         const value = this.getAttribute(attr);

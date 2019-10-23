@@ -2,7 +2,7 @@
   "name": "hyper-patterns",
   "version": "0.0.1",
   "description": "Temporal pattern generation with HTML",
-  "main": "dist/hyperpattern.js",
+  "main": "dist/hyperpatterns.js",
   "scripts": {
     "build": "webpack --mode=production",
     "lint": "eslint src test",
