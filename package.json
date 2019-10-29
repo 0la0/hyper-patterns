@@ -13,7 +13,7 @@
   "repository": "github:0la0/hyper-patterns",
   "license": "GPL-3.0",
   "dependencies": {
-    "metronome": "github:0la0/metronome#1.0.2",
+    "metronome": "github:0la0/metronome#v1.1.0",
     "sea": "github:0la0/sea#1.0.0"
   },
   "devDependencies": {

@@ -68,7 +68,9 @@ export default class HyperPatternArp extends HyperPatternBase {
     };
   }
 
-  disconnectedCallback() {} // TODO
+  disconnectedCallback() {
+    super.connectedCallback();
+  }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (!this.isMounted) { return; }
@@ -80,6 +82,5 @@ export default class HyperPatternArp extends HyperPatternBase {
       pattern.addTransform(arpTransform);
     });
     this.arpTransform = arpTransform;
-    // console.log('params', this.params);
   }
 }

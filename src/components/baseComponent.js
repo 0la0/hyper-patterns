@@ -7,4 +7,8 @@ export default class PatternBase extends HTMLElement {
   connectedCallback() {
     this.isMounted = true;
   }
+
+  disconnectedCallback() {
+    this.isMounted = false;
+  }
 }

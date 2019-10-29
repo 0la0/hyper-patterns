@@ -4,6 +4,7 @@ const countPredicateFn = () => true;
 
 function arpUp(cycleElement, nextElementTime, arpNoteDuration, step, distance, repeat) {
   let arpElements = [];
+  const ele = cycleElement.getElement();
   let arpTime = cycleElement.getTime();
   let baseNote = cycleElement.getElement().getNote();
   let arpNote = baseNote;
@@ -76,7 +77,7 @@ export default function arpeggiate({
     throw new Error(`Arpeggiator, unrecognized style: ${mode}`);
   }
   const transformFn = _pattern => {
-    const cycleElements = _pattern.getRelativeCycle();
+    const cycleElements = _pattern.getRelativeCycle().filter(ele => ele.getElement());
     const extraElements = [];
     const relativeStepDuration = rate / _pattern.getNumTicks();
     cycleElements.forEach((cycleElement, index) => {

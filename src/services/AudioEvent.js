@@ -1,3 +1,4 @@
+// TODO: rename to PatternEvent, note -> value
 export default class AudioEvent {
   constructor(address = '', note = 60, time, interpolate = false) {
     this.address = address;

@@ -22,6 +22,10 @@ export default class HyperSeq extends HyperPatternBase {
     metronome.register(this.metronomeSchedulable);
   }
 
+  disconnectedCallback() {
+    super.disconnectedCallback();
+  }
+
   handleTick(tickNumber, time) {
     const audioEvents = this.cycleHandler.handleTick(time, metronome.getTickLength());
     if (!audioEvents) { return; }

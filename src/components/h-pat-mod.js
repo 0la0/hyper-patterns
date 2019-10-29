@@ -68,7 +68,9 @@ export default class HyperPatternMod extends HyperPatternBase {
     };
   }
 
-  disconnectedCallback() {} // TODO
+  disconnectedCallback() {
+    super.disconnectedCallback();
+  }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
     if (!this.isMounted) { return; }

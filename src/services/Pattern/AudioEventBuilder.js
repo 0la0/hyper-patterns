@@ -51,9 +51,11 @@ export function buildAudioEventsFromPattern(relativeCycle, baseAddress, baseTime
   if (!Array.isArray(relativeCycle)) {
     throw new Error('Cycle must be an array');
   }
-  return relativeCycle.map(cycleElement => {
-    const preciseTime = baseTime.clone().add(cycleElement.getTime() * cycleDuration);
-    const audioEvent = cycleElement.getElement();
-    return audioEvent ? audioEvent.setTime(preciseTime) : undefined;
-  }).filter(Boolean);
+  return relativeCycle
+    .map(cycleElement => {
+      const preciseTime = baseTime + cycleElement.getTime() * cycleDuration;
+      const audioEvent = cycleElement.getElement();
+      return audioEvent ? audioEvent.setTime(preciseTime) : undefined;
+    })
+    .filter(Boolean);
 }
