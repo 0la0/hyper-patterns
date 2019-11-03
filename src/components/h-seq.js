@@ -2,6 +2,7 @@ import HyperPatternBase from './baseComponent';
 import metronome, { MetronomeScheduler } from '../services/metronome';
 import eventBus from '../services/EventBus';
 import CycleHandler from '../services/CycleHandler';
+import { batchRender } from '../services/TaskScheduler';
 
 export default class HyperSeq extends HyperPatternBase {
   static get tag() {
@@ -20,6 +21,11 @@ export default class HyperSeq extends HyperPatternBase {
       stop: () => console.log('ps-seq todo: stop'),
     });
     metronome.register(this.metronomeSchedulable);
+    batchRender(() => {
+      if (this.parentNode.patternEventInlet) {
+        this.patternEventInlet = this.parentNode.patternEventInlet;
+      }
+    });
   }
 
   disconnectedCallback() {
@@ -29,6 +35,10 @@ export default class HyperSeq extends HyperPatternBase {
   handleTick(tickNumber, time) {
     const audioEvents = this.cycleHandler.handleTick(time, metronome.getTickLength());
     if (!audioEvents) { return; }
-    audioEvents.forEach(audioEvent => eventBus.publish(audioEvent));
+    if (this.patternEventInlet) {
+      audioEvents.forEach(audioEvent => this.patternEventInlet(audioEvent));
+    } else {
+      audioEvents.forEach(audioEvent => eventBus.publish(audioEvent));
+    }
   }
 }

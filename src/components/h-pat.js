@@ -2,9 +2,9 @@ import HyperPatternBase from './baseComponent';
 import PatternBuilder from '../services/PatternFunctions/PatternBuilder.js';
 import { batchRender } from '../services/TaskScheduler';
 
-export default class HyperPatternMidi extends HyperPatternBase {
+export default class HyperPattern extends HyperPatternBase {
   static get tag() {
-    return 'h-pat-midi';
+    return 'h-pat';
   }
 
   static get observedAttributes() {

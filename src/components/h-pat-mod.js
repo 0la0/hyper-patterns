@@ -1,14 +1,25 @@
 import HyperPatternBase from './baseComponent';
 import degrade from '../services/PatternFunctions/DegradeHandler';
 import every from '../services/PatternFunctions/EveryHandler';
+import { ftom, mtof, } from '../services/PatternFunctions/MidiHandler';
 import offset from '../services/PatternFunctions/OffsetHandler';
 import repeat from '../services/PatternFunctions/RepeatHandler';
 import reverse from '../services/PatternFunctions/ReverseHandler';
 import rotate from '../services/PatternFunctions/RotateHandler';
 import speed from '../services/PatternFunctions/SpeedHandler';
 
-
-const transformDelegate = { degrade, every, offset, repeat, reverse, rotate, speed, };
+ // TODO: skip, map
+const transformDelegate = {
+  degrade,
+  every,
+  ftom,
+  mtof,
+  offset,
+  repeat,
+  reverse,
+  rotate,
+  speed,
+};
 
 export default class HyperPatternMod extends HyperPatternBase {
   static get tag() {
@@ -16,7 +27,7 @@ export default class HyperPatternMod extends HyperPatternBase {
   }
 
   static get observedAttributes() {
-    return [ 'degrade', 'every', 'offset', 'repeat', 'reverse', 'rotate', 'speed' ];
+    return Object.keys(transformDelegate);
   }
 
   addTransform(key, value) {
