@@ -8,3 +8,10 @@ install dependencies: `npm install`
 run tests: `npm test`  
 run linter: `npm run lint`  
 build: `npm run build`  
+
+## TODO:
+- message mapper
+- message filters
+- message delay
+- message outlet / midi to address
+- compatibility with trigger "patternInlets"

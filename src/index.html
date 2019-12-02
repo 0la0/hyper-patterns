@@ -16,13 +16,18 @@
         font-size: 12px;
         overflow: hidden;
       }
-      .toggle-button {
+      nav {
         position: absolute;
         right: 0;
         top: 0;
-        padding: 8px;
-        margin: 8px;
+        margin: 4px 8px;
+        display: flex;
+        flex-direction: column;
+      }
+      button {
         background: unset;
+        padding: 8px;
+        margin: 4px 0;
         color: #CCC;
         border: 2px solid #CCC;
         border-radius: 4px;
@@ -37,11 +42,25 @@
         const event = new CustomEvent(isOn ? 'CLOCK_START' : 'CLOCK_STOP');
         document.dispatchEvent(event);
       }
-      document.addEventListener('GLOBAL_EVENT', event => console.log('event', event.detail));
+
+      function refreshMidiDevices() {
+        hyperpatterns.default.provideMidiFactory()
+          .then(midiDeviceFactory => {
+            console.log(midiDeviceFactory)
+            console.log('inputs', midiDeviceFactory.getInputList());
+            console.log('outputs', midiDeviceFactory.getOutputList());
+          })
+          .catch(error => console.log('error', error));
+      }
+
+      // document.addEventListener('GLOBAL_EVENT', event => console.log('event', event.detail));
     </script>
   </head>
   <body>
-    <button class="toggle-button" onclick="toggle(event)">toggle</button>
+    <nav>
+      <button onclick="toggle(event)">toggle</button>
+      <button onclick="refreshMidiDevices(event)">Refresh MIDI Devices</button>
+    </nav>
     
     <h-seq>
       <!-- <h-arp step="2"> -->
@@ -51,6 +70,15 @@
         </h-pat-mod>
       <!-- </h-arp> -->
     </h-seq>
+
+    <h-midi-in
+      name="Launchpad Mini"
+    >
+    </h-midi-in>
+
+    <h-msg-outlet address="b">
+      <h-msg-inlet address="a"></h-msg-inlet>
+    </h-msg-outlet>
 
   </body>  
 </html>

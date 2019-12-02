@@ -14,8 +14,9 @@ const webpackConfig = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'hyperpatterns.js',
     sourceMapFilename: 'hyperpatterns.js.map',
-    library: 'hyper-patterns',
+    library: 'hyperpatterns',
     libraryTarget: 'umd',
+    globalObject: 'this',
   },
   devtool: 'source-map',
   module: {
