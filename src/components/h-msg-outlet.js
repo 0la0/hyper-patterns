@@ -12,12 +12,8 @@ export default class HyperMessageOutlet extends HyperPatternBase {
 
   connectedCallback() {
     super.connectedCallback();
-
-    // TODO: same pattern as h-seq
-    this.messageInlet = message => console.log('broadcast message to:', this.address, message);
-
+    this.messageInlet = this._messageInlet.bind(this);
     this.address = '';
-
     this.paramMap = {
       address: {
         setValue: address => this.address = address,
@@ -27,6 +23,17 @@ export default class HyperMessageOutlet extends HyperPatternBase {
       .forEach(attrName => {
         this.attributeChangedCallback(attrName, null, this.getAttribute(attrName));
       });
+  }
+
+  _messageInlet(message) {
+    if (!this.address) { return; }
+    const modifiedMessage = message.clone().setAddress(this.address);
+    if (this.patternEventInlet) {
+      this.patternEventInlet(modifiedMessage);
+    } else {
+      console.log('publish', modifiedMessage)
+      eventBus.publish(modifiedMessage);
+    }
   }
 
   disconnectedCallback() {

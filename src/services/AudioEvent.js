@@ -39,7 +39,6 @@ export default class AudioEvent {
   }
 
   clone() {
-    const clonedTime = this.time ? this.time.clone() : undefined;
-    return new AudioEvent(this.address, this.note, clonedTime, this.interpolate);
+    return new AudioEvent(this.address, this.note, this.time, this.interpolate);
   }
 }
