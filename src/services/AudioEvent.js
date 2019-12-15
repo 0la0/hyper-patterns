@@ -16,6 +16,7 @@ export default class AudioEvent {
     return this.address;
   }
 
+  // TODO: change "note" to "value"
   setNote(note) {
     this.note = note;
     return this;

@@ -3,8 +3,8 @@ import { PatternTransform } from './PatternTransformer';
 const freqA4 = 440;
 const midiA4 = 69;
 
-const _mtof = midiNote => freqA4 * Math.pow(2, (midiNote - midiA4) / 12);
-const _ftom = frequency => midiA4 + Math.round(12 * Math.log2(frequency / freqA4));
+export const _mtof = midiNote => freqA4 * Math.pow(2, (midiNote - midiA4) / 12);
+export const _ftom = frequency => midiA4 + Math.round(12 * Math.log2(frequency / freqA4));
 
 export function mtof() {
   const countPredicateFn = () => true;

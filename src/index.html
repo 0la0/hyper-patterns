@@ -52,7 +52,6 @@
           })
           .catch(error => console.log('error', error));
       }
-
       // document.addEventListener('GLOBAL_EVENT', event => console.log('event', event.detail));
     </script>
   </head>
@@ -76,8 +75,16 @@
     >
     </h-midi-in>
 
+    <!-- <h-msg-outlet address="b">
+      <h-msg-map address="c" value="asMidi(v + 5)" time="fn(t + 120)">
+          <h-msg-inlet address="a"></h-msg-inlet>
+      </h-msg-map>
+    </h-msg-outlet> -->
+
     <h-msg-outlet address="b">
-      <h-msg-inlet address="a"></h-msg-inlet>
+      <h-msg-filter value="asMidi(v >= 59)">
+          <h-msg-inlet address="a"></h-msg-inlet>
+      </h-msg-filter>
     </h-msg-outlet>
 
   </body>  

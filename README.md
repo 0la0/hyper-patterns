@@ -10,8 +10,9 @@ run linter: `npm run lint`
 build: `npm run build`  
 
 ## TODO:
-- message mapper
-- message filters
-- message delay
 - message outlet / midi to address
 - compatibility with trigger "patternInlets"
+- message outlet fan out
+- message intlet fan in
+- rename "AudioEvent" to "PatternElement", and property "note" to "value"
+- examples page
