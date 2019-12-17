@@ -1,12 +1,12 @@
 import HyperPatternBase from './baseComponent';
 
-export default class HyperMidiOut extends HyperPatternBase {
+export default class HyperMidiCcOut extends HyperPatternBase {
   static get tag() {
-    return 'h-midi-out';
+    return 'h-midi-cc-out';
   }
 
   static get observedAttributes() {
-    return [];
+    return [ '' ];
   }
 
   connectedCallback() {

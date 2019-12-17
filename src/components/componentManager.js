@@ -7,9 +7,9 @@ import HyperMessageFilter from './h-msg-filter';
 import HyperMessageInlet from './h-msg-inlet';
 import HyperMessageMap from './h-msg-map';
 import HyperMessageOutlet from './h-msg-outlet';
+import HyperMidiCcOut from './h-midi-cc-out';
 import HyperMidiIn from './h-midi-in';
-import HyperMidiOut from './h-midi-out';
-
+import HyperMidiNoteOut from './h-midi-note-out';
 
 export const components = {
   HyperPatternArp,
@@ -21,8 +21,9 @@ export const components = {
   HyperMessageInlet,
   HyperMessageMap,
   HyperMessageOutlet,
+  HyperMidiCcOut,
   HyperMidiIn,
-  HyperMidiOut,
+  HyperMidiNoteOut,
 };
 
 export function defineComponents() {
