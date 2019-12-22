@@ -16,3 +16,5 @@ build: `npm run build`
 - message intlet fan in
 - rename "AudioEvent" to "PatternElement", and property "note" to "value"
 - examples page
+- message duplicator
+- editor / parser handles comments correctly
