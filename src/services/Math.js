@@ -52,3 +52,11 @@ export function parseParens(stringValue) {
   const value = stringValue.substring(index1 + 1, index2);
   return { ok: true, value };
 }
+
+export function intOrDefault(stringValue, defaultInt = 0) {
+  const intValue = parseInt(stringValue, 10);
+  if (Number.isInteger(intValue)) {
+    return intValue;
+  }
+  return defaultInt;
+}

@@ -2,14 +2,8 @@ import HyperPatternBase from './baseComponent';
 import MidiMessage, { COMMAND, } from '../services/MidiMessage';
 import provideMidiFactory from '../services/MidiDeviceFactory';
 import { batchRender } from '../services/TaskScheduler';
-
-function intOrDefault(stringValue, defaultInt = 0) {
-  const intValue = parseInt(stringValue, 10);
-  if (Number.isInteger(intValue)) {
-    return intValue;
-  }
-  return defaultInt;
-}
+import { clamp, intOrDefault } from '../services/Math';
+import MidiAttribute from '../services/AttributeMidi';
 
 export default class HyperMidiNoteOut extends HyperPatternBase {
   static get tag() {
@@ -17,7 +11,7 @@ export default class HyperMidiNoteOut extends HyperPatternBase {
   }
 
   static get observedAttributes() {
-    return [ 'name', 'channel', 'note', 'value', 'noteLength', ];
+    return [ 'name', 'channel', 'note', 'value', 'notelength', ];
   }
 
   connectedCallback() {
@@ -27,6 +21,8 @@ export default class HyperMidiNoteOut extends HyperPatternBase {
     this.note = 37;
     this.value = 127;
     this.noteLength = 1000;
+
+    this.patternEventInlet = this.schedule.bind(this);
 
     this.paramMap = {
       name: {
@@ -42,28 +38,16 @@ export default class HyperMidiNoteOut extends HyperPatternBase {
         }
       },
       channel: {
-        setValue: channel => {
-          this.channel = intOrDefault(channel, 0);
+        setValue: channelString => {
+          const numericChannel = intOrDefault(channelString, 0);
+          this.channel = clamp(numericChannel, 0, 16);
         },
       },
-      note: {
-        setValue: note => {
-          this.note = intOrDefault(note, 60);
-        },
-      },
-      value: {
-        setValue: value => {
-          this.value = intOrDefault(value, 127);
-        },
-      },
-      noteLength: {
-        setValue: noteLength => {
-          this.noteLength = intOrDefault(noteLength, 120);
-        },
-      },
+      note: new MidiAttribute(this.patternEventInlet, 60),
+      value: new MidiAttribute(this.patternEventInlet, 127),
+      notelength: new MidiAttribute(this.patternEventInlet, 120),
     };
-    console.log('h-midi-note-out connected')
-    this.patternEventInlet = message => this.schedule(message);
+    
     batchRender(() => {
       HyperMidiNoteOut.observedAttributes.forEach(attrName => {
         const attrValue = this.getAttribute(attrName);
@@ -74,23 +58,28 @@ export default class HyperMidiNoteOut extends HyperPatternBase {
   }
 
   schedule(message) {
-      // console.log('schedule midi note', message);
-      // console.log('channel', this.channel, this.note, this.value);
     if (!this.deviceRef) {
       return;
     }
-    const note = this.note;
-    const value = message.note;
-    const onMessage = new MidiMessage(COMMAND.NOTE_ON, this.channel, note, value).serialize();
-    const offMessage = new MidiMessage(COMMAND.NOTE_OFF, this.channel, note, value).serialize();
-    const offTime = message.time + this.noteLength;
-    // console.log('send message to devie', message.time, offTime);
-    this.deviceRef.send(onMessage, message.time);
-    this.deviceRef.send(offMessage, offTime);
+    // note, value, get from child ....
+    setTimeout(() => {
+      const note = this.paramMap.note.useChildValue ?
+        message.note : this.paramMap.note.getValue(message)
+      const value = this.paramMap.value.useChildValue ?
+        message.note : this.paramMap.value.getValue(message);
+      const noteLength = this.paramMap.notelength.getValue(message);
+      console.log('schedule midi message', note, value, noteLength);
+      const onMessage = new MidiMessage(COMMAND.NOTE_ON, this.channel, note, value).serialize();
+      const offMessage = new MidiMessage(COMMAND.NOTE_OFF, this.channel, note, value).serialize();
+      const offTime = message.time + noteLength;
+      this.deviceRef.send(onMessage, message.time);
+      this.deviceRef.send(offMessage, offTime);
+    });
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
+    Object.values(this.paramMap).forEach(param => param.dispose && param.dispose());
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
