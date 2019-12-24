@@ -179,7 +179,7 @@ Arpeggiate a pattern
 <h-msg-outlet address="b">
   <h-msg-inlet address="a">
   <h-msg-inlet>
-<h-msg-outlet>
+</h-msg-outlet>
 ```
 
 ### Filter
@@ -197,7 +197,7 @@ every: fn, asMidi
   <h-msg-filter value="asMidi(v >= 59)">
     <h-msg-inlet address="a"></h-msg-inlet>
   </h-msg-filter>
-<h-msg-outlet>
+</h-msg-outlet>
 
 <!-- OR -->
 
@@ -206,7 +206,7 @@ every: fn, asMidi
   <h-msg-filter value="fn(v >= 440)">
     <h-msg-inlet address="a"></h-msg-inlet>
   </h-msg-filter>
-<h-msg-outlet>
+</h-msg-outlet>
 
 <!-- OR -->
 
@@ -215,7 +215,7 @@ every: fn, asMidi
   <h-msg-filter every="fn(t % 2 === 0)">
     <h-msg-inlet address="a"></h-msg-inlet>
   </h-msg-filter>
-<h-msg-outlet>
+</h-msg-outlet>
 ```
 
 ### Map
@@ -233,7 +233,7 @@ time: fn, asMidi
   <h-msg-map value="asMidi(v + 3)">
     <h-msg-inlet address="a"></h-msg-inlet>
   </h-msg-filter>
-<h-msg-outlet>
+</h-msg-outlet>
 
 <!-- OR -->
 
@@ -242,7 +242,7 @@ time: fn, asMidi
   <h-msg-map value="fn(v + 10)">
     <h-msg-inlet address="a"></h-msg-inlet>
   </h-msg-filter>
-<h-msg-outlet>
+</h-msg-outlet>
 
 <!-- OR -->
 
@@ -251,7 +251,7 @@ time: fn, asMidi
   <h-msg-map time="fn(t + 120)">
     <h-msg-inlet address="a"></h-msg-inlet>
   </h-msg-filter>
-<h-msg-outlet>
+</h-msg-outlet>
 
 ```
 
@@ -264,7 +264,7 @@ Name: string - the midi device name
 this example broadcasts messages from a MIDI device to the address "a"
 <h-msg-outlet address="a">
   <h-midi-in name="Launchpad-Mini"></h-midi-in>
-<h-msg-outlet>
+</h-msg-outlet>
 ```
 
 ### MIDI note out
@@ -291,7 +291,7 @@ this example broadcasts messages from a MIDI device to the address "a"
 
 <!-- trigger from child -->
 <h-midi-note-out
-  name="TR-08"
+  name="TR-08"  
   channel="9"
   note="60"
   value="127"

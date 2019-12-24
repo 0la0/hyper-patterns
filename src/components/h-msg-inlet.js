@@ -33,15 +33,15 @@ export default class HyperMessageInlet extends HyperPatternBase {
         },
       },
     };
-    HyperMessageInlet.observedAttributes
-      .forEach(attrName => {
-        this.attributeChangedCallback(attrName, null, this.getAttribute(attrName));
-      });
 
     batchRender(() => {
       if (this.parentNode.messageInlet) {
         this.parentMessageInlet = this.parentNode.messageInlet;
       }
+      HyperMessageInlet.observedAttributes
+        .forEach(attrName => {
+          this.attributeChangedCallback(attrName, null, this.getAttribute(attrName));
+        });
     });
   }
 

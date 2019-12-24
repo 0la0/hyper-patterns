@@ -3,6 +3,8 @@ Temporal pattern generation with HTML
 
 Development ongoing, documentation to follow.
 
+[Examples](examples.md)
+
 ## Build scripts
 install dependencies: `npm install`  
 run tests: `npm test`  

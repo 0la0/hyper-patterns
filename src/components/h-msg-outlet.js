@@ -1,5 +1,6 @@
 import HyperPatternBase from './baseComponent';
 import eventBus from '../services/EventBus';
+import { batchRender } from '../services/TaskScheduler';
 
 export default class HyperMessageOutlet extends HyperPatternBase {
   static get tag() {
@@ -19,10 +20,12 @@ export default class HyperMessageOutlet extends HyperPatternBase {
         setValue: address => this.address = address,
       },
     };
-    HyperMessageOutlet.observedAttributes
-      .forEach(attrName => {
-        this.attributeChangedCallback(attrName, null, this.getAttribute(attrName));
-      });
+    batchRender(() => {
+      HyperMessageOutlet.observedAttributes
+        .forEach(attrName => {
+          this.attributeChangedCallback(attrName, null, this.getAttribute(attrName));
+        });
+    });
   }
 
   _messageInlet(message) {
