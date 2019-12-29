@@ -1,6 +1,7 @@
 import HyperPatternArp from './h-arp';
 import HyperPatternMod from './h-pat-mod';
 import HyperPattern from './h-pat';
+import HyperPatternScaleLock from './h-scale';
 import HyperPatternSeq from './h-seq';
 
 import HyperMessageFilter from './h-msg-filter';
@@ -15,6 +16,7 @@ export const components = {
   HyperPatternArp,
   HyperPatternMod,
   HyperPattern,
+  HyperPatternScaleLock,
   HyperPatternSeq,
 
   HyperMessageFilter,
