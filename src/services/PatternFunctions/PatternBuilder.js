@@ -1,8 +1,8 @@
-import parseCycle from '../Pattern/PatternStringParser';
-import getRelativeCycle from '../Pattern/RelativeCycleBuilder';
-import Pattern from '../Pattern/Pattern';
-import { uuid } from '../Math';
-import PatternTransformer from './PatternTransformer';
+import parseCycle from '../Pattern/PatternStringParser.js';
+import getRelativeCycle from '../Pattern/RelativeCycleBuilder.js';
+import Pattern from '../Pattern/Pattern.js';
+import { uuid } from '../Math.js';
+import PatternTransformer from './PatternTransformer.js';
 
 export default class PatternBuilder extends PatternTransformer{
   constructor({ patternString = '', baseAddress = '' }) {

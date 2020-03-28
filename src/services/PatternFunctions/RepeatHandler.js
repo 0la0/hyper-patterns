@@ -1,4 +1,4 @@
-import { PatternTransform } from './PatternTransformer';
+import { PatternTransform } from './PatternTransformer.js';
 
 export default function repeat(numRepeats) {
   if (!Number.isInteger(numRepeats) || numRepeats < 1) {

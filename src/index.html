@@ -52,7 +52,7 @@
           })
           .catch(error => console.log('error', error));
       }
-      // document.addEventListener('GLOBAL_EVENT', event => console.log('event', event.detail));
+      document.addEventListener('GLOBAL_EVENT', event => console.log('event', event.detail));
     </script>
   </head>
   <body>
@@ -61,16 +61,23 @@
       <button onclick="refreshMidiDevices(event)">Refresh MIDI Devices</button>
     </nav>
     
-    <!-- <h-seq>
-      <h-arp step="2">
-        <h-pat-mod speed="1" mtof>
-          <h-pat pattern="a:52 a:60 , a:72"></h-pat>
-          <h-pat address="a" pattern="59 58 57"></h-pat>
-        </h-pat-mod>
-      </h-arp>
-    </h-seq> -->
+    <h-seq>
+      <h-scale name="major" base="0">
+        <h-arp step="2">
+          <h-pat-mod speed="1" mtof>
+            <h-pat pattern="a:52 a:60 , a:72"></h-pat>
+            <h-pat address="a" pattern="59 58 57"></h-pat>
+          </h-pat-mod>
+        </h-arp>
+      </h-scale>
+    </h-seq>
 
-    
+    <!-- <h-seq>
+      <h-pat-mod repeat-interval="10" mtof>
+        <h-pat pattern="a:52 a:60 , a:72"></h-pat>
+        <h-pat address="a" pattern="59 58 57"></h-pat>
+      </h-pat-mod>
+    </h-seq> -->
 
     <!-- <h-midi-in
       name="TB-03"
@@ -114,7 +121,7 @@
       </h-seq>
     </h-midi-note-out> -->
 
-    <h-midi-note-out
+    <!-- <h-midi-note-out
       name="TB-03"
       channel="1"
       note="child"
@@ -126,7 +133,7 @@
           <h-pat address="a" pattern="59 [58 100]"></h-pat>
         </h-pat-mod>
       </h-seq>
-    </h-midi-note-out>
+    </h-midi-note-out> -->
 
     <!-- <h-msg-outlet address="b">
       <h-msg-map address="c" value="asMidi(v + 5)" time="fn(t + 120)">

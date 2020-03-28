@@ -1,5 +1,4 @@
 import HyperPatternBase from './baseComponent';
-import { ftom, mtof, } from '../services/PatternFunctions/MidiHandler';
 import { batchRender } from '../services/TaskScheduler';
 import { intOrDefault } from '../services/Math';
 

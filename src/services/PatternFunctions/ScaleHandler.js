@@ -1,6 +1,5 @@
-import { PatternTransform } from './PatternTransformer';
-import scales from '../scale/scales';
-import ScaleManager from '../scale/ScaleManager';
+import { PatternTransform } from './PatternTransformer.js';
+import ScaleManager from '../scale/ScaleManager.js';
 
 // TODO: move midi functions to module
 const freqA4 = 440;

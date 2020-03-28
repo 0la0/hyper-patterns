@@ -1,4 +1,4 @@
-import { buildAudioEventsFromPattern } from './AudioEventBuilder';
+import { buildAudioEventsFromPattern } from './AudioEventBuilder.js';
 
 export default class Pattern {
   constructor(relativeCycle, baseAddress, numTicks, cnt) {

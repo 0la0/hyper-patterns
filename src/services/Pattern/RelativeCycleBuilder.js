@@ -1,5 +1,5 @@
-import { parseToken } from './AudioEventBuilder';
-import RelativeCycleElement from './RelativeCycleElement';
+import { parseToken } from './AudioEventBuilder.js';
+import RelativeCycleElement from './RelativeCycleElement.js';
 
 export default function getRelativeCycle(cycle, baseTime = 0, cycleDuration = 1, baseAddress = '') {
   if (!Array.isArray(cycle)) {

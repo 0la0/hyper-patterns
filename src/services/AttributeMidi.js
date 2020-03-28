@@ -1,7 +1,7 @@
 import { Subscription } from 'sea';
-import { intOrDefault } from '../services/Math';
-import eventBus from '../services/EventBus';
-import ParamTable from './ParamTable';
+import { intOrDefault } from '../services/Math.js';
+import eventBus from '../services/EventBus.js';
+import ParamTable from './ParamTable.js';
 
 const PARENTHESES = /\(([^)]+)\)/;
 

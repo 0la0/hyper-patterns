@@ -1,4 +1,4 @@
-import AudioEvent from '../AudioEvent';
+import AudioEvent from '../AudioEvent.js';
 
 const REST_CHARACTERS = new Set([ ',', ]);
 

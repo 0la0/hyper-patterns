@@ -1,4 +1,4 @@
-import { PatternTransform } from './PatternTransformer';
+import { PatternTransform } from './PatternTransformer.js';
 
 const freqA4 = 440;
 const midiA4 = 69;

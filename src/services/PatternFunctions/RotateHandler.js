@@ -1,4 +1,4 @@
-import { PatternTransform } from './PatternTransformer';
+import { PatternTransform } from './PatternTransformer.js';
 
 export default function rotate(rotation) {
   if (Number.isNaN(rotation) || rotation < 0 || rotation > 1) {

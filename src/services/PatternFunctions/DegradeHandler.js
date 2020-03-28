@@ -1,4 +1,4 @@
-import { PatternTransform } from './PatternTransformer';
+import { PatternTransform } from './PatternTransformer.js';
 
 export default function degrade(threshold) {
   if (Number.isNaN(threshold) || threshold < 0 || threshold > 1) {

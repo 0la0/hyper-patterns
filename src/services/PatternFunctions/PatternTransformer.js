@@ -1,10 +1,10 @@
 // import arpeggiate from './ArpeggiatorHandler';
-import degrade from './DegradeHandler';
-import offset from './OffsetHandler';
-import repeat from './RepeatHandler';
-import reverse from './ReverseHandler';
-import rotate from './RotateHandler';
-import speed from './SpeedHandler';
+import degrade from './DegradeHandler.js';
+import offset from './OffsetHandler.js';
+import repeat from './RepeatHandler.js';
+import reverse from './ReverseHandler.js';
+import rotate from './RotateHandler.js';
+import speed from './SpeedHandler.js';
 
 export class PatternTransform {
   constructor(countPredicate, transform) {

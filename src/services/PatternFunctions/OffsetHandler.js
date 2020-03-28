@@ -1,4 +1,4 @@
-import { PatternTransform } from './PatternTransformer';
+import { PatternTransform } from './PatternTransformer.js';
 
 export default function offset(offset) {
   if (Number.isNaN(offset) || offset < 0 || offset > 1) {

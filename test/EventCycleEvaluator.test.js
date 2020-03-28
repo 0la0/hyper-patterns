@@ -1,9 +1,9 @@
 import assert from 'assert';
-import parseCycle from '../src/services/Pattern/PatternStringParser';
-import getRelativeCycle from '../src/services/Pattern/RelativeCycleBuilder';
-import RelativeCycleElement from '../src/services/Pattern/RelativeCycleElement';
-import { buildAudioEventsFromPattern } from '../src/services/Pattern/AudioEventBuilder';
-import AudioEvent from '../src/services/AudioEvent';
+import parseCycle from '../src/services/Pattern/PatternStringParser.js';
+import getRelativeCycle from '../src/services/Pattern/RelativeCycleBuilder.js';
+import RelativeCycleElement from '../src/services/Pattern/RelativeCycleElement.js';
+import { buildAudioEventsFromPattern } from '../src/services/Pattern/AudioEventBuilder.js';
+import AudioEvent from '../src/services/AudioEvent.js';
 
 const BASE_ADDRESS = '';
 

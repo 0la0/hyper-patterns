@@ -4,11 +4,12 @@ import every from '../services/PatternFunctions/EveryHandler';
 import { ftom, mtof, } from '../services/PatternFunctions/MidiHandler';
 import offset from '../services/PatternFunctions/OffsetHandler';
 import repeat from '../services/PatternFunctions/RepeatHandler';
+import repeatInterval from '../services/PatternFunctions/RepeatIntervalHandler';
 import reverse from '../services/PatternFunctions/ReverseHandler';
 import rotate from '../services/PatternFunctions/RotateHandler';
 import speed from '../services/PatternFunctions/SpeedHandler';
 
- // TODO: skip, map
+// TODO: skip, map
 const transformDelegate = {
   degrade,
   every,
@@ -16,6 +17,7 @@ const transformDelegate = {
   mtof,
   offset,
   repeat,
+  repeatInterval,
   reverse,
   rotate,
   speed,

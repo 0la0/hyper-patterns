@@ -1,4 +1,4 @@
-import { PatternTransform } from './PatternTransformer';
+import { PatternTransform } from './PatternTransformer.js';
 
 export default function speed(relativeSpeed) {
   if (Number.isNaN(relativeSpeed) || relativeSpeed <= 0) {

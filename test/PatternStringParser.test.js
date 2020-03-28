@@ -1,5 +1,5 @@
 import assert from 'assert';
-import parseCycle from '../src/services/Pattern/PatternStringParser';
+import parseCycle from '../src/services/Pattern/PatternStringParser.js';
 
 describe('CycleParser', () => {
   it('parses empty strings', () => {

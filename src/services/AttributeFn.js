@@ -1,5 +1,5 @@
-import { _ftom, _mtof, } from './PatternFunctions/MidiHandler';
-import { parseParens, } from './Math';
+import { _ftom, _mtof, } from './PatternFunctions/MidiHandler.js';
+import { parseParens, } from './Math.js';
 
 const identityFn = x => x;
 

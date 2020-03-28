@@ -1,10 +1,9 @@
-import { PatternTransform } from './PatternTransformer';
+import { PatternTransform } from './PatternTransformer.js';
 
 const countPredicateFn = () => true;
 
 function arpUp(cycleElement, nextElementTime, arpNoteDuration, step, distance, repeat) {
   let arpElements = [];
-  const ele = cycleElement.getElement();
   let arpTime = cycleElement.getTime();
   let baseNote = cycleElement.getElement().getNote();
   let arpNote = baseNote;

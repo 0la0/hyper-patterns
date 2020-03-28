@@ -18,7 +18,7 @@ export default class HyperMidiIn extends HyperPatternBase {
     this.midiMessageHandler = event => {
       const message = MidiMessage.fromSerialized(event.data);
       console.log('message', message);
-    }
+    };
 
     this.paramMap = {
       name: {

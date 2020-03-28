@@ -64,7 +64,7 @@ export default class HyperMidiNoteOut extends HyperPatternBase {
     // note, value, get from child ....
     setTimeout(() => {
       const note = this.paramMap.note.useChildValue ?
-        message.note : this.paramMap.note.getValue(message)
+        message.note : this.paramMap.note.getValue(message);
       const value = this.paramMap.value.useChildValue ?
         message.note : this.paramMap.value.getValue(message);
       const noteLength = this.paramMap.notelength.getValue(message);

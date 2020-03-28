@@ -34,7 +34,7 @@ export default class HyperMessageOutlet extends HyperPatternBase {
     if (this.patternEventInlet) {
       this.patternEventInlet(modifiedMessage);
     } else {
-      console.log('publish', modifiedMessage)
+      // console.log('publish', modifiedMessage)
       eventBus.publish(modifiedMessage);
     }
   }
