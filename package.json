@@ -14,13 +14,13 @@
   "license": "GPL-3.0",
   "type": "module",
   "dependencies": {
-    "metronome": "github:0la0/metronome#v1.1.0",
+    "metronome": "github:0la0/metronome#v1.1.1",
     "sea": "github:0la0/sea#v1.1.0"
   },
   "devDependencies": {
-    "eslint": "^7.0.0-alpha.2",
+    "eslint": "^7.0.0-alpha.3",
     "mocha": "^7.1.1",
-    "raw-loader": "^4.0.0",
+    "raw-loader": "^4.0.1",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
