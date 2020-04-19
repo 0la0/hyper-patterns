@@ -7,7 +7,8 @@
     "build": "webpack --config webpack.config.cjs --mode=production",
     "lint": "eslint src test",
     "start": "webpack-dev-server --config webpack.config.cjs --mode=development --inline --colors --progress",
-    "test": "mocha test/*.test.js"
+    "test": "mocha test/*.test.js",
+    "prepare": "npm run build"
   },
   "author": "Luke Anderson",
   "repository": "github:0la0/hyper-patterns",
