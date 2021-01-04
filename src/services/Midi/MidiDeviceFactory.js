@@ -1,4 +1,4 @@
-let instance;
+export let midiDeviceFactoryInstance;
 
 class MidiDeviceFactory {
   constructor(midiAccess) {
@@ -46,14 +46,14 @@ function buildMidiFactory () {
 }
 
 export default function provideMidiFactory() {
-  if (instance) {
-    return Promise.resolve(instance);
+  if (midiDeviceFactoryInstance) {
+    return Promise.resolve(midiDeviceFactoryInstance);
   }
   else {
     return buildMidiFactory()
       .then(midiDeviceFactory => {
-        instance = midiDeviceFactory;
-        return instance;
+        midiDeviceFactoryInstance = midiDeviceFactory;
+        return midiDeviceFactoryInstance;
       })
       .catch(error => {
         throw new Error(error);

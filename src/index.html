@@ -61,7 +61,7 @@
       <button onclick="refreshMidiDevices(event)">Refresh MIDI Devices</button>
     </nav>
     
-    <h-seq>
+    <!-- <h-seq>
       <h-scale name="major" base="0">
         <h-arp step="2">
           <h-pat-mod speed="1" mtof>
@@ -70,7 +70,7 @@
           </h-pat-mod>
         </h-arp>
       </h-scale>
-    </h-seq>
+    </h-seq> -->
 
     <!-- <h-seq>
       <h-pat-mod repeat-interval="10" mtof>
@@ -100,12 +100,18 @@
       </h-pat-mod>
     </h-seq> -->
 
-    <!-- <h-seq>
+    <h-midi-out
+      alias="08bass"
+      value="trigger(b)"
+    >
+    </h-midi-out>
+
+    <h-seq>
       <h-pat-mod speed="0.5">
         <h-pat pattern="b:52 b:60"></h-pat>
         <h-pat pattern="b:2 b:100"></h-pat>
       </h-pat-mod>
-    </h-seq> -->
+    </h-seq>
 
     <!-- <h-midi-note-out
       name="TR-08"

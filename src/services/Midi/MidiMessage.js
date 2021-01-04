@@ -31,10 +31,6 @@ export const COMMAND = {
   [COMMANDS.SYSTEM_EXCLUSIVE]: 15
 };
 
-export function getCommandString(command) {
-  return COMMAND_REVERSE[command] || 'UNKNOWN';
-}
-
 export default class MidiMessage {
   constructor(command, channel, note, value) {
     this.command = command;
@@ -47,6 +43,10 @@ export default class MidiMessage {
     return new Uint8Array([
       (this.command << 4) | this.channel, this.note, this.value
     ]);
+  }
+
+  getCommandString() {
+    return COMMAND_REVERSE[this.command] || 'UNKNOWN';
   }
 
   toString() {

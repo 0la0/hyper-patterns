@@ -1,6 +1,6 @@
 import HyperPatternBase from './baseComponent';
-import MidiMessage, { COMMAND, } from '../services/MidiMessage';
-import provideMidiFactory from '../services/MidiDeviceFactory';
+import MidiMessage, { COMMAND, } from '../services/Midi/MidiMessage';
+import provideMidiFactory from '../services/Midi/MidiDeviceFactory';
 import { batchRender } from '../services/TaskScheduler';
 import { clamp, intOrDefault } from '../services/Math';
 import MidiAttribute from '../services/AttributeMidi';
@@ -61,6 +61,7 @@ export default class HyperMidiNoteOut extends HyperPatternBase {
     if (!this.deviceRef) {
       return;
     }
+    console.log('message?', message);
     // note, value, get from child ....
     setTimeout(() => {
       const note = this.paramMap.note.useChildValue ?

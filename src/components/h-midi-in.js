@@ -1,6 +1,6 @@
 import HyperPatternBase from './baseComponent';
-import provideMidiFactory from '../services/MidiDeviceFactory';
-import MidiMessage from '../services/MidiMessage';
+import provideMidiFactory from '../services/Midi/MidiDeviceFactory';
+import MidiMessage from '../services/Midi/MidiMessage';
 
 export default class HyperMidiIn extends HyperPatternBase {
   static get tag() {

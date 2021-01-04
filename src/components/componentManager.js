@@ -11,6 +11,7 @@ import HyperMessageOutlet from './h-msg-outlet';
 import HyperMidiCcOut from './h-midi-cc-out';
 import HyperMidiIn from './h-midi-in';
 import HyperMidiNoteOut from './h-midi-note-out';
+import HyperMidiOut from './h-midi-out';
 
 export const components = {
   HyperPatternArp,
@@ -26,6 +27,7 @@ export const components = {
   HyperMidiCcOut,
   HyperMidiIn,
   HyperMidiNoteOut,
+  HyperMidiOut,
 };
 
 export function defineComponents() {
